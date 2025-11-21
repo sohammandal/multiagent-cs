@@ -4,4 +4,9 @@ version = "0.1.0"
 description = "Multi-Agent Customer Service System with A2A and MCP"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "fastapi>=0.121.3",
+    "langgraph>=1.0.3",
+    "pydantic>=2.12.4",
+    "uvicorn>=0.38.0",
+]
