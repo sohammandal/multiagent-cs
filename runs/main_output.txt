@@ -1,0 +1,243 @@
+(multiagent-cs)  sohammandal@Sohams-MacBook-Pro  ~/Developer/multiagent-cs   main ±  uv run python main.py
+/Users/sohammandal/Developer/multiagent-cs/main.py:95: DeprecationWarning: MCPToolset class is deprecated, use `McpToolset` instead.
+  db_toolset = MCPToolset(
+/Users/sohammandal/Developer/multiagent-cs/main.py:323: UserWarning: [EXPERIMENTAL] RemoteA2aAgent: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subjected to breaking changes. A2A protocol and SDK arethemselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  remote_customer_data_agent = RemoteA2aAgent(
+/Users/sohammandal/Developer/multiagent-cs/main.py:329: UserWarning: [EXPERIMENTAL] RemoteA2aAgent: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subjected to breaking changes. A2A protocol and SDK arethemselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  remote_support_agent = RemoteA2aAgent(
+2025-11-27 20:22:46,902 - WARNING - google_adk.google.adk.runners - App name mismatch detected. The runner is configured with app name "customer_data_agent", but the root agent was loaded from "/Users/sohammandal/Developer/multiagent-cs/.venv/lib/python3.11/site-packages/google/adk/agents", which implies app name "agents".
+/Users/sohammandal/Developer/multiagent-cs/main.py:235: UserWarning: [EXPERIMENTAL] A2aAgentExecutorConfig: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subjected to breaking changes. A2A protocol and SDK arethemselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  config = A2aAgentExecutorConfig()
+/Users/sohammandal/Developer/multiagent-cs/main.py:236: UserWarning: [EXPERIMENTAL] A2aAgentExecutor: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subjected to breaking changes. A2A protocol and SDK arethemselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  executor = A2aAgentExecutor(runner=runner, config=config)
+2025-11-27 20:22:46,914 - WARNING - google_adk.google.adk.runners - App name mismatch detected. The runner is configured with app name "support_agent", but the root agent was loaded from "/Users/sohammandal/Developer/multiagent-cs/.venv/lib/python3.11/site-packages/google/adk/agents", which implies app name "agents".
+2025-11-27 20:22:46,916 - WARNING - google_adk.google.adk.runners - App name mismatch detected. The runner is configured with app name "router_host_agent", but the root agent was loaded from "/Users/sohammandal/Developer/multiagent-cs/.venv/lib/python3.11/site-packages/google/adk/agents", which implies app name "agents".
+2025-11-27 20:22:48,903 - INFO - multiagent-cs - A2A servers started:
+2025-11-27 20:22:48,903 - INFO - multiagent-cs -   Customer Data Agent: http://127.0.0.1:10020
+2025-11-27 20:22:48,903 - INFO - multiagent-cs -   Support Agent:       http://127.0.0.1:10021
+2025-11-27 20:22:48,903 - INFO - multiagent-cs -   Router Host Agent:   http://127.0.0.1:10022
+
+====================
+Scenario 1: Simple Query
+Query: "Get customer information for ID 5"
+====================
+2025-11-27 20:22:49,953 - INFO - httpx - HTTP Request: GET http://127.0.0.1:10022/.well-known/agent-card.json "HTTP/1.1 200 OK"
+2025-11-27 20:22:49,955 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10022 "HTTP/1.1 200 OK"
+/Users/sohammandal/Developer/multiagent-cs/.venv/lib/python3.11/site-packages/google/adk/a2a/executor/a2a_agent_executor.py:202: UserWarning: [EXPERIMENTAL] convert_a2a_request_to_agent_run_request: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subjected to breaking changes. A2A protocol and SDK arethemselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  run_request = self._config.request_converter(
+/Users/sohammandal/Developer/multiagent-cs/.venv/lib/python3.11/site-packages/google/adk/a2a/converters/request_converter.py:118: UserWarning: [EXPERIMENTAL] convert_a2a_part_to_genai_part: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subjected to breaking changes. A2A protocol and SDK arethemselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  parts=[part_converter(part) for part in request.message.parts],
+/Users/sohammandal/Developer/multiagent-cs/.venv/lib/python3.11/site-packages/google/adk/a2a/converters/request_converter.py:113: UserWarning: [EXPERIMENTAL] AgentRunRequest: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subjected to breaking changes. A2A protocol and SDK arethemselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  return AgentRunRequest(
+/Users/sohammandal/Developer/multiagent-cs/.venv/lib/python3.11/site-packages/google/adk/a2a/executor/a2a_agent_executor.py:235: UserWarning: [EXPERIMENTAL] TaskResultAggregator: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subjected to breaking changes. A2A protocol and SDK arethemselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  task_result_aggregator = TaskResultAggregator()
+2025-11-27 20:22:49,963 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: 0db54a27-3356-4db7-b0c0-35f7f4032ec4, context_id: fdb6cc0a-2613-4a0d-a4fe-4b3dae34ae07).
+2025-11-27 20:22:49,965 - INFO - httpx - HTTP Request: GET http://127.0.0.1:10020/.well-known/agent-card.json "HTTP/1.1 200 OK"
+2025-11-27 20:22:49,965 - INFO - a2a.client.card_resolver - Successfully fetched agent card data from http://127.0.0.1:10020/.well-known/agent-card.json: {'capabilities': {'streaming': True}, 'defaultInputModes': ['text/plain'], 'defaultOutputModes': ['application/json'], 'description': 'Accesses customer and ticket data via MCP tools', 'name': 'Customer Data Agent', 'preferredTransport': 'JSONRPC', 'protocolVersion': '0.3.0', 'skills': [{'description': 'Uses MCP tools to fetch, update, and summarize customers and tickets', 'examples': ['Get customer information for ID 5', 'Show ticket history for customer 3', 'Update customer 10 email to new@example.com'], 'id': 'get_and_update_customer', 'name': 'Get and update customer records', 'tags': ['customer', 'tickets', 'mcp']}], 'url': 'http://127.0.0.1:10020', 'version': '1.0'}
+2025-11-27 20:22:49,966 - INFO - google_adk.google.adk.agents.remote_a2a_agent - Successfully resolved remote A2A agent: customer_data_remote
+/Users/sohammandal/Developer/multiagent-cs/.venv/lib/python3.11/site-packages/google/adk/agents/remote_a2a_agent.py:379: UserWarning: [EXPERIMENTAL] convert_genai_part_to_a2a_part: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subjected to breaking changes. A2A protocol and SDK arethemselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  converted_part = self._genai_part_converter(part)
+2025-11-27 20:22:49,977 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: c43f5870-cd9d-47ec-8a29-d87c49458f2f, context_id: f0f6b133-8112-4953-b187-bac7b8394f76).
+2025-11-27 20:22:49,980 - INFO - httpx - HTTP Request: GET http://127.0.0.1:8001/sse "HTTP/1.1 200 OK"
+2025-11-27 20:22:49,983 - INFO - httpx - HTTP Request: POST http://127.0.0.1:8001/messages/?session_id=46023eeeba9d407590710cd515423b71 "HTTP/1.1 202 Accepted"
+2025-11-27 20:22:49,985 - INFO - httpx - HTTP Request: POST http://127.0.0.1:8001/messages/?session_id=46023eeeba9d407590710cd515423b71 "HTTP/1.1 202 Accepted"
+2025-11-27 20:22:49,987 - INFO - httpx - HTTP Request: POST http://127.0.0.1:8001/messages/?session_id=46023eeeba9d407590710cd515423b71 "HTTP/1.1 202 Accepted"
+/Users/sohammandal/Developer/multiagent-cs/.venv/lib/python3.11/site-packages/google/adk/tools/mcp_tool/mcp_tool.py:101: UserWarning: [EXPERIMENTAL] BaseAuthenticatedTool: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2025-11-27 20:22:49,988 - INFO - google_genai.types -
+Note: Conversion of fields that are not included in the JSONSchema class are ignored.
+Json Schema is now supported natively by both Vertex AI and Gemini API. Users
+are recommended to pass/receive Json Schema directly to/from the API. For example:
+1. the counter part of GenerateContentConfig.response_schema is
+   GenerateContentConfig.response_json_schema, which accepts [JSON
+  Schema](https://json-schema.org/)
+2. the counter part of FunctionDeclaration.parameters is
+   FunctionDeclaration.parameters_json_schema, which accepts [JSON
+   Schema](https://json-schema.org/)
+3. the counter part of FunctionDeclaration.response is
+   FunctionDeclaration.response_json_schema, which accepts [JSON
+   Schema](https://json-schema.org/)
+
+2025-11-27 20:22:49,989 - WARNING - google_genai._api_client - Both GOOGLE_API_KEY and GEMINI_API_KEY are set. Using GOOGLE_API_KEY.
+2025-11-27 20:22:50,003 - INFO - google_adk.google.adk.models.google_llm - Sending out request, model: gemini-2.0-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2025-11-27 20:22:51,406 - INFO - google_adk.google.adk.models.google_llm - Response received from the model.
+2025-11-27 20:22:51,411 - INFO - httpx - HTTP Request: POST http://127.0.0.1:8001/messages/?session_id=46023eeeba9d407590710cd515423b71 "HTTP/1.1 202 Accepted"
+/Users/sohammandal/Developer/multiagent-cs/.venv/lib/python3.11/site-packages/google/adk/a2a/executor/a2a_agent_executor.py:238: UserWarning: [EXPERIMENTAL] convert_event_to_a2a_events: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subjected to breaking changes. A2A protocol and SDK arethemselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  for a2a_event in self._config.event_converter(
+/Users/sohammandal/Developer/multiagent-cs/.venv/lib/python3.11/site-packages/google/adk/a2a/converters/event_converter.py:556: UserWarning: [EXPERIMENTAL] convert_event_to_a2a_message: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subjected to breaking changes. A2A protocol and SDK arethemselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  message = convert_event_to_a2a_message(
+/Users/sohammandal/Developer/multiagent-cs/.venv/lib/python3.11/site-packages/google/adk/a2a/converters/event_converter.py:392: UserWarning: [EXPERIMENTAL] convert_genai_part_to_a2a_part: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subjected to breaking changes. A2A protocol and SDK arethemselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  a2a_part = part_converter(part)
+2025-11-27 20:22:51,420 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10020 "HTTP/1.1 200 OK"
+/Users/sohammandal/Developer/multiagent-cs/.venv/lib/python3.11/site-packages/google/adk/a2a/converters/event_converter.py:239: UserWarning: [EXPERIMENTAL] convert_a2a_message_to_event: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subjected to breaking changes. A2A protocol and SDK arethemselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  return convert_a2a_message_to_event(
+/Users/sohammandal/Developer/multiagent-cs/.venv/lib/python3.11/site-packages/google/adk/a2a/converters/event_converter.py:309: UserWarning: [EXPERIMENTAL] convert_a2a_part_to_genai_part: ADK Implementation for A2A support (A2aAgentExecutor, RemoteA2aAgent and corresponding supporting components etc.) is in experimental mode and is subjected to breaking changes. A2A protocol and SDK arethemselves not experimental. Once it's stable enough the experimental mode will be removed. Your feedback is welcome.
+  part = part_converter(a2a_part)
+2025-11-27 20:22:51,434 - INFO - httpx - HTTP Request: GET http://127.0.0.1:10021/.well-known/agent-card.json "HTTP/1.1 200 OK"
+2025-11-27 20:22:51,434 - INFO - a2a.client.card_resolver - Successfully fetched agent card data from http://127.0.0.1:10021/.well-known/agent-card.json: {'capabilities': {'streaming': True}, 'defaultInputModes': ['text/plain'], 'defaultOutputModes': ['application/json'], 'description': 'Handles support conversations and escalation decisions using provided customer context', 'name': 'Support Agent', 'preferredTransport': 'JSONRPC', 'protocolVersion': '0.3.0', 'skills': [{'description': 'Resolves customer issues, decides on escalation, and drafts responses', 'examples': ['I need help upgrading my account', 'I was charged twice, please refund'], 'id': 'handle_support_issue', 'name': 'Handle support issues', 'tags': ['support', 'billing', 'escalation']}], 'url': 'http://127.0.0.1:10021', 'version': '1.0'}
+2025-11-27 20:22:51,434 - INFO - google_adk.google.adk.agents.remote_a2a_agent - Successfully resolved remote A2A agent: support_remote
+2025-11-27 20:22:51,437 - WARNING - google_genai._api_client - Both GOOGLE_API_KEY and GEMINI_API_KEY are set. Using GOOGLE_API_KEY.
+2025-11-27 20:22:51,456 - INFO - google_adk.google.adk.models.google_llm - Sending out request, model: gemini-2.0-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2025-11-27 20:22:51,456 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2025-11-27 20:22:51,457 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: 2c4aabe4-2db0-4886-b64d-5cdb67d8d3ff, context_id: 9a58074d-a866-4300-9ef5-b2f48e5d5c98).
+2025-11-27 20:22:52,538 - INFO - google_adk.google.adk.models.google_llm - Response received from the model.
+2025-11-27 20:22:52,545 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10021 "HTTP/1.1 200 OK"
+```json
+{
+  "source_agent": "support_agent",
+  "final_reply": "Hello! I have customer information for Grace Hopper.  \n\nName: Grace Hopper\nEmail: ghopper@example.com\nPhone: 555-1212\nStatus: active",
+  "actions": [],
+  "escalate": false,
+  "escalation_reason": "",
+  "coordination_log": [
+    "Support agent received context ...",
+    "Customer information retrieved. No escalation needed."
+  ]
+}
+```
+
+====================
+Scenario 2: Coordinated Query
+Query: "I'm customer 12345 and need help upgrading my account"
+====================
+2025-11-27 20:22:52,565 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10022 "HTTP/1.1 200 OK"
+2025-11-27 20:22:52,566 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: 3c71dac6-2486-4e38-8b49-88b163ae5597, context_id: e9f0d45a-0f1c-435d-bfac-80cf213c0c09).
+2025-11-27 20:22:52,569 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: 8e661858-dea3-4fd4-8911-e48ceb96e417, context_id: 1036f136-50e6-4e4c-b615-9d820a518b2d).
+2025-11-27 20:22:52,570 - INFO - httpx - HTTP Request: POST http://127.0.0.1:8001/messages/?session_id=46023eeeba9d407590710cd515423b71 "HTTP/1.1 202 Accepted"
+2025-11-27 20:22:52,573 - WARNING - google_genai._api_client - Both GOOGLE_API_KEY and GEMINI_API_KEY are set. Using GOOGLE_API_KEY.
+2025-11-27 20:22:52,591 - INFO - google_adk.google.adk.models.google_llm - Sending out request, model: gemini-2.0-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2025-11-27 20:22:53,769 - INFO - google_adk.google.adk.models.google_llm - Response received from the model.
+2025-11-27 20:22:53,773 - INFO - httpx - HTTP Request: POST http://127.0.0.1:8001/messages/?session_id=46023eeeba9d407590710cd515423b71 "HTTP/1.1 202 Accepted"
+2025-11-27 20:22:53,780 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10020 "HTTP/1.1 200 OK"
+2025-11-27 20:22:53,785 - WARNING - google_genai._api_client - Both GOOGLE_API_KEY and GEMINI_API_KEY are set. Using GOOGLE_API_KEY.
+2025-11-27 20:22:53,807 - INFO - google_adk.google.adk.models.google_llm - Sending out request, model: gemini-2.0-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2025-11-27 20:22:53,807 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2025-11-27 20:22:53,811 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: 4a4bd443-2052-407b-a1c1-eff979b46a01, context_id: 05080aa2-3a0a-446b-975b-7ecb37508ea4).
+2025-11-27 20:22:55,295 - INFO - google_adk.google.adk.models.google_llm - Response received from the model.
+2025-11-27 20:22:55,298 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10021 "HTTP/1.1 200 OK"
+```json
+{
+  "source_agent": "support_agent",
+  "final_reply": "I see a high-priority ticket has been created for your account upgrade to the premium tier, customer 5. A specialist will reach out to you shortly to assist with the upgrade. ",
+  "actions": [
+    "human_followup: Check on the status of ticket <ticket_id>.",
+    "note_on_account: Customer 5 has a high priority ticket open to upgrade to premium tier."
+  ],
+  "escalate": false,
+  "escalation_reason": "",
+  "coordination_log": [
+    "Support agent received context from customer_data_agent.",
+    "Acknowledged the high-priority ticket and informed the customer. No escalation needed at this point."
+  ]
+}
+```
+
+====================
+Scenario 3: Complex Query
+Query: "Show me all active customers who have open tickets"
+====================
+2025-11-27 20:22:55,307 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10022 "HTTP/1.1 200 OK"
+2025-11-27 20:22:55,308 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: bb36dcd0-9ce6-4150-b2db-2a317174687b, context_id: ecac06ae-f0b6-463d-b306-bf7aeebc798e).
+2025-11-27 20:22:55,310 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: 22dd1a27-f993-4c49-b997-6e49a86032c9, context_id: 56351b1f-3e14-4781-aecd-1926c3b8e58d).
+2025-11-27 20:22:55,311 - INFO - httpx - HTTP Request: POST http://127.0.0.1:8001/messages/?session_id=46023eeeba9d407590710cd515423b71 "HTTP/1.1 202 Accepted"
+2025-11-27 20:22:55,312 - WARNING - google_genai._api_client - Both GOOGLE_API_KEY and GEMINI_API_KEY are set. Using GOOGLE_API_KEY.
+2025-11-27 20:22:55,326 - INFO - google_adk.google.adk.models.google_llm - Sending out request, model: gemini-2.0-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2025-11-27 20:22:55,960 - INFO - google_adk.google.adk.models.google_llm - Response received from the model.
+2025-11-27 20:22:55,965 - INFO - httpx - HTTP Request: POST http://127.0.0.1:8001/messages/?session_id=46023eeeba9d407590710cd515423b71 "HTTP/1.1 202 Accepted"
+2025-11-27 20:22:55,972 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10020 "HTTP/1.1 200 OK"
+2025-11-27 20:22:55,977 - WARNING - google_genai._api_client - Both GOOGLE_API_KEY and GEMINI_API_KEY are set. Using GOOGLE_API_KEY.
+2025-11-27 20:22:55,999 - INFO - google_adk.google.adk.models.google_llm - Sending out request, model: gemini-2.0-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2025-11-27 20:22:55,999 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2025-11-27 20:22:56,001 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: 4915ffd8-0f62-4280-9579-01ecde95485a, context_id: eb7e0d87-f0c2-4427-a8f7-4eeb36a17f85).
+2025-11-27 20:22:57,655 - INFO - google_adk.google.adk.models.google_llm - Response received from the model.
+2025-11-27 20:22:57,662 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10021 "HTTP/1.1 200 OK"
+```json
+{
+  "source_agent": "support_agent",
+  "final_reply": "I understand you'd like a list of active customers with open tickets, grouped by customer and showing ticket priorities. Unfortunately, the system I use can't directly fulfill this specific request at this time.\n\nI recommend opening a new ticket with our support team or to ask for a custom report.",
+  "actions": [
+    "human_followup: User requested a complex report that could not be created using available tools. Need to open a ticket for the user to solve this issue."
+  ],
+  "escalate": true,
+  "escalation_reason": "Unable to provide the requested report.",
+  "coordination_log": [
+    "Support agent received context from customer_data_remote.",
+    "Decided to escalate because the required functionality is not available and user needs a new ticket created."
+  ]
+}
+```
+
+====================
+Scenario 4: Escalation
+Query: "I've been charged twice, please refund immediately!"
+====================
+2025-11-27 20:22:57,681 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10022 "HTTP/1.1 200 OK"
+2025-11-27 20:22:57,682 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: bbaba13f-c856-4d7c-acd1-4c1ac416f689, context_id: 5755d335-1e46-4018-bf28-341f580bc484).
+2025-11-27 20:22:57,685 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: 35a488e2-ab22-47f7-b6ba-f7c24e94e6e3, context_id: a213f04b-2dce-4ae6-af27-0cc17637afb1).
+2025-11-27 20:22:57,686 - INFO - httpx - HTTP Request: POST http://127.0.0.1:8001/messages/?session_id=46023eeeba9d407590710cd515423b71 "HTTP/1.1 202 Accepted"
+2025-11-27 20:22:57,689 - WARNING - google_genai._api_client - Both GOOGLE_API_KEY and GEMINI_API_KEY are set. Using GOOGLE_API_KEY.
+2025-11-27 20:22:57,707 - INFO - google_adk.google.adk.models.google_llm - Sending out request, model: gemini-2.0-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2025-11-27 20:22:58,887 - INFO - google_adk.google.adk.models.google_llm - Response received from the model.
+2025-11-27 20:22:58,891 - INFO - httpx - HTTP Request: POST http://127.0.0.1:8001/messages/?session_id=46023eeeba9d407590710cd515423b71 "HTTP/1.1 202 Accepted"
+2025-11-27 20:22:58,897 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10020 "HTTP/1.1 200 OK"
+2025-11-27 20:22:58,901 - WARNING - google_genai._api_client - Both GOOGLE_API_KEY and GEMINI_API_KEY are set. Using GOOGLE_API_KEY.
+2025-11-27 20:22:58,919 - INFO - google_adk.google.adk.models.google_llm - Sending out request, model: gemini-2.0-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2025-11-27 20:22:58,920 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2025-11-27 20:22:58,921 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: 033a0a97-87c7-469f-9824-7b20e119e17d, context_id: e96ebaaa-37b8-424e-a121-94d0712557ff).
+2025-11-27 20:23:00,466 - INFO - google_adk.google.adk.models.google_llm - Response received from the model.
+2025-11-27 20:23:00,472 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10021 "HTTP/1.1 200 OK"
+```json
+{
+  "source_agent": "support_agent",
+  "final_reply": "I understand you were charged twice and are very upset. I have created a high-priority ticket for your refund request. Please allow 24-48 hours for the refund to be processed. We apologize for the inconvenience.",
+  "actions": [
+    "note_on_account: Customer is upset about double charge. Ticket created for refund.",
+    "human_followup: Check on the ticket for the refund and make sure it is processed quickly."
+  ],
+  "escalate": false,
+  "escalation_reason": "",
+  "coordination_log": [
+    "Support agent received context.",
+    "Acknowledged the customer's frustration and the double charge.",
+    "Confirmed the creation of a high-priority ticket.",
+    "Decided not to escalate as a high priority ticket was already created."
+  ]
+}
+```
+
+====================
+Scenario 5: Multi-Intent
+Query: "Update my email to new@email.com and show my ticket history"
+====================
+2025-11-27 20:23:00,486 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10022 "HTTP/1.1 200 OK"
+2025-11-27 20:23:00,486 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: 9077ae57-4955-43fb-940c-64ce73ad159d, context_id: 1c58ebc6-3edd-4926-add0-3d2acfafa185).
+2025-11-27 20:23:00,490 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: 42aff21f-c8fa-4dec-ad1c-75634a354277, context_id: 16093089-3b3e-4dcf-b1e9-cb598cb8ebb1).
+2025-11-27 20:23:00,491 - INFO - httpx - HTTP Request: POST http://127.0.0.1:8001/messages/?session_id=46023eeeba9d407590710cd515423b71 "HTTP/1.1 202 Accepted"
+2025-11-27 20:23:00,493 - WARNING - google_genai._api_client - Both GOOGLE_API_KEY and GEMINI_API_KEY are set. Using GOOGLE_API_KEY.
+2025-11-27 20:23:00,513 - INFO - google_adk.google.adk.models.google_llm - Sending out request, model: gemini-2.0-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2025-11-27 20:23:01,707 - INFO - google_adk.google.adk.models.google_llm - Response received from the model.
+2025-11-27 20:23:01,712 - INFO - httpx - HTTP Request: POST http://127.0.0.1:8001/messages/?session_id=46023eeeba9d407590710cd515423b71 "HTTP/1.1 202 Accepted"
+2025-11-27 20:23:01,720 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10020 "HTTP/1.1 200 OK"
+2025-11-27 20:23:01,724 - WARNING - google_genai._api_client - Both GOOGLE_API_KEY and GEMINI_API_KEY are set. Using GOOGLE_API_KEY.
+2025-11-27 20:23:01,746 - INFO - google_adk.google.adk.models.google_llm - Sending out request, model: gemini-2.0-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2025-11-27 20:23:01,747 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2025-11-27 20:23:01,749 - INFO - a2a.server.tasks.task_manager - Task not found or task_id not set. Creating new task for event (task_id: e3726e8c-a135-46d0-a68d-fb1c7ab7d54f, context_id: a8a202c3-6fb6-42e0-9128-036f8e4af393).
+2025-11-27 20:23:02,926 - INFO - google_adk.google.adk.models.google_llm - Response received from the model.
+2025-11-27 20:23:02,932 - INFO - httpx - HTTP Request: POST http://127.0.0.1:10021 "HTTP/1.1 200 OK"
+```json
+{
+  "source_agent": "support_agent",
+  "final_reply": "Okay, I've updated your email address to new@email.com. I'm also checking your ticket history now. There are no open tickets at the moment. Is there anything else I can help you with?",
+  "actions": [],
+  "escalate": false,
+  "escalation_reason": "",
+  "coordination_log": [
+    "Support agent received context from customer_data_agent.",
+    "The customer requested an email update and ticket history review.",
+    "The customer's email was successfully updated. There are no open tickets."
+  ]
+}
+```
+
+All scenarios executed. Check above output and logs for A2A coordination.
+(multiagent-cs)  sohammandal@Sohams-MacBook-Pro  ~/Developer/multiagent-cs   main ± 
